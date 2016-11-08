@@ -36,3 +36,17 @@ fit.eve = neuralnet(avg_tp~airtime+avg_prob+sum_suc+sum_att, data=evening, hidde
 fit.eve$weights
 plot(fit.eve)
 fit.eve$result.matrix
+
+
+#DBN
+model.vars = list('airtime','avg_prob','sum_suc','sum_att')
+Xn = afternoon[colnames(afternoon) %in% model.vars]
+S1 = DBNScoreStep1(Xn, method='ls')
+G1 = BuildEdges(S1,threshold=1,nb=NULL,targetNames=NULL,predNames=NULL,prec=3,dec=FALSE)
+G1
+
+alpha1 = .05
+S2 = DBNScoreStep2(S1$S1ls, Xn, method='ls', alpha1)
+alpha2 = 0.05
+G2 = BuildEdges(S2,threshold=alpha2,dec=FALSE)
+G2
