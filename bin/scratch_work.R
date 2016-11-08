@@ -5,6 +5,9 @@ library(nnet)
 getwd()
 setwd("/Users/stevenhurwitt/Documents/bayesian-wifi/data")
 
+##Once we get more data we can combine csvs and split into training/test sets as needed
+#need to learn more about DBN's and Thompson Sampling, as well as how to constantly run it in a Linux environment...
+
 afternoon = read.csv("afternoonrates.csv", header = T, sep = ",")
 evening = read.csv("eveningrates.csv", header = T, sep = ",")
 
