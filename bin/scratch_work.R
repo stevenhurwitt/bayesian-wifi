@@ -29,7 +29,7 @@ fit.aft$weights
 plot(fit.aft)
 fit.aft$result.matrix
 
-fit.eve = neuralnet(avg_tp~airtime+avg_prob+sum_suc+sum_att, data=afternoon, hidden=3, err.fct = "sse", linear.output=T)
+fit.eve = neuralnet(avg_tp~airtime+avg_prob+sum_suc+sum_att, data=evening, hidden=3, err.fct = "sse", linear.output=T)
 fit.eve$weights
 plot(fit.eve)
 fit.eve$result.matrix
